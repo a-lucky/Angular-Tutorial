@@ -14,6 +14,7 @@ import { MessagesComponent } from './messages/messages.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { HeroTableComponent } from './hero-table/hero-table.component';
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
     HeroDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    HeroTableComponent
   ],
   bootstrap: [ AppComponent ]
 })

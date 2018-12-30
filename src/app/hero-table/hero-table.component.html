@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <tr>
+      <th *ngFor="let col of heroKeys">{{ col }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let hero of heroes">
+      <td *ngFor="let col of heroKeys">{{ hero[col] }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr *ngFor="let col of heroKeys">
+      <th>{{ col }}</th>
+      <td *ngFor="let hero of heroes">{{ hero[col] }}</td>
+  </tbody>
+</table>
