@@ -13,8 +13,12 @@
 
 <table>
   <tbody>
-    <tr *ngFor="let col of heroKeys">
+    <tr *ngFor="let col of heroKeys; let row_i = index">
       <th>{{ col }}</th>
-      <td *ngFor="let hero of heroes">{{ hero[col] }}</td>
+      <td *ngFor="let hero of heroes; let col_i = index">
+        <ng-container *ngIf="col_i !== 3">
+          {{ hero[col] }}
+        </ng-container>
+      </td>
   </tbody>
 </table>
