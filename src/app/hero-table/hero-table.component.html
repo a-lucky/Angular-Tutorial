@@ -1,24 +1,29 @@
-<table>
-  <thead>
-    <tr>
-      <th *ngFor="let col of heroKeys">{{ col }}</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let hero of heroes">
-      <td *ngFor="let col of heroKeys">{{ hero[col] }}</td>
-    </tr>
-  </tbody>
-</table>
 
-<table>
-  <tbody>
-    <tr *ngFor="let col of heroKeys; let row_i = index">
-      <th>{{ col }}</th>
-      <td *ngFor="let hero of heroes; let col_i = index">
-        <ng-container *ngIf="col_i !== 3">
-          {{ hero[col] }}
+<div class="sticky-table">
+  <table>
+    <thead>
+      <tr class="sticky-header">
+        <th *ngFor="let col of heroKeys">{{ col }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hero of heroes">
+        <td *ngFor="let col of heroKeys">{{ hero[col] }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="sticky-table sticky-ltr-cells">
+  <table>
+    <tbody>
+      <tr *ngFor="let col of heroKeys; let row_i = index">
+        <th class="sticky-cell">{{ col }}</th>
+        <ng-container *ngFor="let hero of heroes; let col_i = index">
+          <td>
+            {{ hero[col] }}
+          </td>
         </ng-container>
-      </td>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>

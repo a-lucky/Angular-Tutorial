@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Hero } from "../hero";
+import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 
 @Component({
@@ -23,7 +23,7 @@ export class HeroTableComponent implements OnInit {
     .subscribe(
       heroes => {
         this.heroes = heroes;
-        if (heroes.length != 0) {
+        if (heroes.length !== 0) {
           this.heroKeys = Object.keys(heroes[0]);
         }
       }
