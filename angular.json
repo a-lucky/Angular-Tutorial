@@ -28,11 +28,11 @@
             ],
             "styles": [
               "src/styles.less",
-              "./jquery-plugin/JQuery-Sticky-Table-master/jquery.stickytable.min.css"
+              "./jquery-plugin/JQuery-Sticky-Table-master/jquery.stickytable.css"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.js",
-              "./jquery-plugin/JQuery-Sticky-Table-master/jquery.stickytable.min.js"
+              "./jquery-plugin/JQuery-Sticky-Table-master/jquery.stickytable.js"
             ]
           },
           "configurations": {
@@ -88,11 +88,11 @@
             "karmaConfig": "src/karma.conf.js",
             "styles": [
               "src/styles.less",
-              "./jquery-plugin/JQuery-Sticky-Table-master/jquery.stickytable.min.css"
+              "./jquery-plugin/JQuery-Sticky-Table-master/jquery.stickytable.css"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.js",
-              "./jquery-plugin/JQuery-Sticky-Table-master/jquery.stickytable.min.js"
+              "./jquery-plugin/JQuery-Sticky-Table-master/jquery.stickytable.js"
             ],
             "assets": [
               "src/favicon.ico",

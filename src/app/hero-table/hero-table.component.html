@@ -1,20 +1,26 @@
 
-<div class="sticky-table">
+<div class="table-wrapper sticky-table sticky-ltr-cells">
   <table>
     <thead>
       <tr class="sticky-header">
-        <th *ngFor="let col of heroKeys">{{ col }}</th>
+        <th [class.sticky-cell]="col_i === 0"
+          *ngFor="let col of heroKeys; let col_i = index">{{ col }}</th>
       </tr>
+      <tr class="sticky-header">
+          <th [class.sticky-cell]="col_i === 0"
+            *ngFor="let col of heroKeys; let col_i = index">{{ col }}</th>
+        </tr>
     </thead>
     <tbody>
       <tr *ngFor="let hero of heroes">
-        <td *ngFor="let col of heroKeys">{{ hero[col] }}</td>
+        <td [class.sticky-cell]="col_i === 0"
+          *ngFor="let col of heroKeys; let col_i = index">{{ hero[col] }}</td>
       </tr>
     </tbody>
   </table>
 </div>
 
-<div class="sticky-table sticky-ltr-cells">
+<div class="table-wrapper sticky-table sticky-ltr-cells">
   <table>
     <tbody>
       <tr *ngFor="let col of heroKeys; let row_i = index">
