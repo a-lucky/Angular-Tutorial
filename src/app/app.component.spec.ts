@@ -31,7 +31,7 @@ describe('AppComponent', () => {
         HeroSearchComponent,
         HeroTableComponent,
       ],
-      imports: [ 
+      imports: [
         FormsModule,
         RouterTestingModule.withRoutes(routes)
       ]

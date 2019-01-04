@@ -17,6 +17,9 @@ import { HeroTableComponent } from './hero-table/hero-table.component';
 
 import { AppRoutingModule } from './app-routing.module';
 
+import { NestableModule } from '../lib/src/nestable.module';
+import { NestableTestComponent } from './nestable-test/nestable-test.component';
+
 
 @NgModule({
   imports: [
@@ -26,7 +29,8 @@ import { AppRoutingModule } from './app-routing.module';
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ),
+    NestableModule
   ],
   declarations: [
     AppComponent,
@@ -35,9 +39,10 @@ import { AppRoutingModule } from './app-routing.module';
     MessagesComponent,
     DashboardComponent,
     HeroSearchComponent,
-    HeroTableComponent
+    HeroTableComponent,
+    NestableTestComponent
   ],
-  bootstrap: [ AppComponent ], 
+  bootstrap: [ AppComponent ],
   providers: [
     {
       provide: APP_BASE_HREF,

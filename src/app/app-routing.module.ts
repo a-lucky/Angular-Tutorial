@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroTableComponent } from './hero-table/hero-table.component';
+import { NestableTestComponent } from './nestable-test/nestable-test.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'detail/:id', component: HeroDetailComponent},
   { path: 'heroes', component: HeroesComponent },
   { path: 'hero-table', component: HeroTableComponent },
+  { path: 'nestable-test', component: NestableTestComponent },
 ];
 
 @NgModule({

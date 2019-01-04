@@ -1,0 +1,18 @@
+<ngx-nestable [(list)]="list" [options]="options" [template]="itemTemplate">
+  </ngx-nestable>
+  
+<ng-template #itemTemplate let-row>
+  <button mat-icon-button [ngxNestableDragHandle]="row">
+    ○
+  </button>
+  
+  <button mat-icon-button *ngIf="row.item.children && row.item.children.length; else empty_item" [ngxNestableExpandCollapse]="row">
+    ▲
+  </button>
+  
+  <div>Item: {{row.item.id}}</div>
+</ng-template>
+
+<ng-template #empty_item>
+  <span style="width: 40px"></span>
+</ng-template>
