@@ -10,15 +10,15 @@ import {
 import { REGISTER_HANDLE, DRAG_START } from '../nestable.constant';
 
 @Directive({
-  selector: '[ngxNestableDragHandle]'
+  selector: '[appNestableDragHandle]'
 })
 export class NestableDragHandleDirective implements OnInit {
-  @Input() public ngxNestableDragHandle;
+  @Input() public appNestableDragHandle;
 
   @HostListener('mousedown', ['$event'])
   public onMouseDown(event) {
     const detail = {
-      param: this.ngxNestableDragHandle,
+      param: this.appNestableDragHandle,
       event: event
     };
     this._el.nativeElement.dispatchEvent(
@@ -30,7 +30,7 @@ export class NestableDragHandleDirective implements OnInit {
 
   ngOnInit(): void {
     this._el.nativeElement.dispatchEvent(
-      new CustomEvent(REGISTER_HANDLE, { bubbles: true, detail: this.ngxNestableDragHandle })
+      new CustomEvent(REGISTER_HANDLE, { bubbles: true, detail: this.appNestableDragHandle })
     );
   }
 }

@@ -2,7 +2,7 @@ import { NestableExpandCollapseDirective } from './nestable-expand-collapse.dire
 
 describe('NestableExpandCollapseDirective', () => {
   it('should create an instance', () => {
-    const directive = new NestableExpandCollapseDirective();
+    const directive = new NestableExpandCollapseDirective(null);
     expect(directive).toBeTruthy();
   });
 });

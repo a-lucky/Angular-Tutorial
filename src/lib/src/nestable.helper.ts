@@ -95,7 +95,7 @@ export const _findObjectInTree = (array, id) => {
     let result = null;
 
     _traverseChildren(array, item => {
-        if (item['$$id'] === Number.parseInt(id)) {
+        if (item['$$id'] === Number.parseInt(id, 10)) {
             result = item;
             return true;
         }

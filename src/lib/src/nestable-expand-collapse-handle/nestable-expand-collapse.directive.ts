@@ -2,10 +2,10 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 import { EXPAND_COLLAPSE } from '../nestable.constant';
 
 @Directive({
-  selector: '[ngxNestableExpandCollapse]'
+  selector: '[appNestableExpandCollapse]'
 })
 export class NestableExpandCollapseDirective {
-  @Input() public ngxNestableExpandCollapse;
+  @Input() public appNestableExpandCollapse;
 
   constructor(private _el: ElementRef) {}
 
@@ -16,11 +16,11 @@ export class NestableExpandCollapseDirective {
 
   @HostListener('click', ['$event'])
   public onClick(event) {
-    this.ngxNestableExpandCollapse.item['$$expanded'] = !this.ngxNestableExpandCollapse.item['$$expanded'];
+    this.appNestableExpandCollapse.item['$$expanded'] = !this.appNestableExpandCollapse.item['$$expanded'];
     this._el.nativeElement.dispatchEvent(
       new CustomEvent(EXPAND_COLLAPSE, {
         bubbles: true,
-        detail: this.ngxNestableExpandCollapse
+        detail: this.appNestableExpandCollapse
       })
     );
   }

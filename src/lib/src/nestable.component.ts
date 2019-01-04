@@ -45,7 +45,7 @@ const hasPointerEvents = (function() {
 })();
 
 @Component({
-  selector: 'ngx-nestable',
+  selector: 'app-nestable',
   templateUrl: './nestable.component.html',
   styleUrls: ['./nestable.component.scss'],
   encapsulation: ViewEncapsulation.None,
@@ -81,7 +81,7 @@ export class NestableComponent implements OnInit, OnDestroy {
   public dragDepth = 0;
 
   /**
-   * The depth of dragging item relative to element root (ngx-nestable)
+   * The depth of dragging item relative to element root (app-nestable)
    */
   public relativeDepth = 0;
 
@@ -551,7 +551,8 @@ export class NestableComponent implements OnInit, OnDestroy {
         return;
       }
       this._parentDragId = Number.parseInt(
-        dragItem.parentElement.parentElement.id
+        dragItem.parentElement.parentElement.id,
+        10
       );
 
       const dragRect = dragItem.getBoundingClientRect();
@@ -588,7 +589,7 @@ export class NestableComponent implements OnInit, OnDestroy {
     this._hideMasks();
 
     if (this.dragEl) {
-      const draggedId = Number.parseInt(this.dragEl.firstElementChild.id);
+      const draggedId = Number.parseInt(this.dragEl.firstElementChild.id, 10);
       let placeholderContainer = helper._closest(
         this._placeholder,
         this.options.itemNodeName
@@ -621,7 +622,7 @@ export class NestableComponent implements OnInit, OnDestroy {
         // palceholder nested
         placeholderContainer = helper._findObjectInTree(
           this.list,
-          Number.parseInt(placeholderContainer.id)
+          Number.parseInt(placeholderContainer.id, 10)
         );
         if (!placeholderContainer.children) {
           placeholderContainer.children = [];
