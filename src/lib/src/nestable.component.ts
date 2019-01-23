@@ -14,6 +14,8 @@ import {
   NgZone
 } from '@angular/core';
 
+import { trigger, style, animate, transition } from '@angular/animations';
+
 import * as helper from './nestable.helper';
 
 import {
@@ -49,7 +51,19 @@ const hasPointerEvents = (function() {
   templateUrl: './nestable.component.html',
   styleUrls: ['./nestable.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [
+    trigger('accordion', [
+      transition(':enter', [
+        style({ height: '0', opacity: 0, overflow: 'hidden' }),
+        animate('100ms', style({ height: '*', opacity: 1 }))
+      ]),
+      transition(':leave', [
+        style({ height: '*', opacity: '1', overflow: 'hidden' }),
+        animate('100ms', style({ height: '0' }))
+      ])
+    ])
+  ],
 })
 export class NestableComponent implements OnInit, OnDestroy {
   @Output() public listChange = new EventEmitter();

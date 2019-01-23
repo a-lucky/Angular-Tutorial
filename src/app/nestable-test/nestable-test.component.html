@@ -2,9 +2,9 @@
 </app-nestable>
   
 <ng-template #itemTemplate let-row>
-  <button mat-icon-button [appNestableDragHandle]="row">
+  <!-- <button mat-icon-button [appNestableDragHandle]="row">
     ○
-  </button>
+  </button> -->
   
   <button mat-icon-button
     *ngIf="row.item.children && row.item.children.length; else empty_item"
@@ -16,5 +16,5 @@
 </ng-template>
 
 <ng-template #empty_item>
-  <span style="width: 40px"></span>
+  <span style="width: 20px">-</span>
 </ng-template>

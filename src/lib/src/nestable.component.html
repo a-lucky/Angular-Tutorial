@@ -1,20 +1,21 @@
-<ng-container *ngTemplateOutlet="nestableList; context:{nestable: list, depth: 0}">
+<ng-container *ngTemplateOutlet="nestableList; context:{nestable: list, depth: 0, parent:null}">
 </ng-container>
 
-<ng-template #nestableList let-nestable="nestable" let-depth="depth">
+<ng-template #nestableList let-nestable="nestable" let-depth="depth" let-parent="parent">
   <ul [style.padding-left.px]="depth ? options.threshold : 0"
-    [class]="options.listClass">
-    <li [class]="options.itemClass" [id]="item.$$id" *ngFor="let item of nestable">
+    [class]="options.listClass" *ngIf="!parent || parent.$$expanded"  [@accordion]>
+    <li [ngClass]="[options.itemClass, 'nestable-item-depth' + depth]" [id]="item.$$id" *ngFor="let item of nestable">
 
-      <ng-container *ngTemplateOutlet="nestableItem; context:{nestable: nestable, item: item, depth: depth}">
-      </ng-container>
-
-      <ng-container *ngIf="item.children && item.$$expanded">
-        <ng-container *ngTemplateOutlet="nestableList; context:{nestable: item.children, depth: depth + 1}">
+      <ng-container *ngIf="item.children">
+        <ng-container *ngTemplateOutlet="nestableList; context:{nestable: item.children, depth: depth + 1, parent: item}">
         </ng-container>
       </ng-container>
 
       <ul [class]="options.listClass" [style.padding-left.px]="options.threshold"></ul>
+
+      <ng-container *ngTemplateOutlet="nestableItem; context:{nestable: nestable, item: item, depth: depth}">
+      </ng-container>
+
     </li>
   </ul>
 </ng-template>
